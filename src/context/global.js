@@ -1,10 +1,15 @@
-import React, { createContext, useContext } from 'react'
+import React, { createContext, useContext, useReducer } from 'react'
 
 const GlobalContext = createContext();
 
 export const GlobalContextProvider = ({children}) => {
 
   const baseUrl = 'https://api.jikan.moe/v4'
+
+  // Reducer
+  const reducer = (state, action) => {
+    return state;
+  }
 
   // Initial state
   const initialState = {
@@ -16,6 +21,8 @@ export const GlobalContextProvider = ({children}) => {
     searchResults: [],
     loading: false,
   }
+
+  const [state, dispatch] = useReducer(reducer, initialState);
 
   return (
     <GlobalContext.Provider value={{
