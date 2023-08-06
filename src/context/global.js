@@ -4,6 +4,8 @@ const GlobalContext = createContext();
 
 export const GlobalContextProvider = ({children}) => {
 
+  const baseUrl = 'https://api.jikan.moe/v4'
+
   // Initial state
   const initialState = {
     popularAnime: [],
