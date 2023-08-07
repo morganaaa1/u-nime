@@ -1,18 +1,17 @@
+import { BrowserRouter } from 'react-router-dom';
 import './App.css';
 import Navbar from './components/Navbar';
 import Popular from './components/Popular';
-import { useGlobalContext } from './context/global';
 
 function App() {
 
-  const global = useGlobalContext();
-  console.log(global)
-
   return (
-    <>
-      <Navbar/>
-      <Popular/>
-    </>
+    <BrowserRouter>
+      <>
+        <Navbar/>
+        <Popular/>
+      </>
+    </BrowserRouter>
   );
 }
 

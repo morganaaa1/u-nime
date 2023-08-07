@@ -42,16 +42,17 @@ export const GlobalContextProvider = ({children}) => {
         pictures: [],
         isSearch: false,
         searchResults: [],
-        loading: false,
+        loading : false,
     }
 
     const [state, dispatch] = useReducer(reducer, intialState);
 
     //fetch popular anime
     const getPopularAnime = async () => {
+      dispatch({type: LOADING})
         const response = await fetch(`${baseUrl}/top/anime?filter=bypopularity`);
         const data = await response.json();
-        console.log(data.data)
+        dispatch({type: GET_POPULAR_ANIME, payload: data.data})
     }
     //initial render
     React.useEffect(() => {
